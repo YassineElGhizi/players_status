@@ -6,6 +6,7 @@ import json
 import time
 import mysql.connector
 
+
 mydb = mysql.connector.connect(
     host="127.0.0.1",
     port=3306,
@@ -19,6 +20,7 @@ mycursor = mydb.cursor(buffered=True)
 # val = (1235, "https://www.w3schools.com/python/python_mysql_insert.asp" , 0)
 # mycursor.execute(sql, val)
 # mydb.commit()
+
 
 
 
@@ -46,19 +48,19 @@ def upvid(link , id):
             if "deleted 404" in tmp.text:
                 print("upvid is down")
                 # tmp.close()
-                save_dead_link(id ,link, "upvid")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "upvid")
+                db_writer(id,link)
                 return False
             else:
                 print("upvid is up ")
                 # tmp.close()
-                save_up_link(id,link, "upvid")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "upvid")
+                # db_writer(id,link,1)
                 return True
         except:
             print("upvid is up ")
-            save_up_link(id, link, "upvid")
-            db_writer(id,link,1)
+            # save_up_link(id, link, "upvid")
+            # db_writer(id,link,1)
             return True
 
 
@@ -70,14 +72,14 @@ def mixdrop(link , id):
             if "WE ARE SORRY" in tmp.text:
                 print("mixdrop is down")
                 # tmp.close()
-                save_dead_link(id ,link, "mix")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "mix")
+                db_writer(id,link)
                 return False
             else:
                 print("mixdrop is up")
                 # tmp.close()
-                save_up_link(id,link, "mix")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "mix")
+                # db_writer(id,link,1)
                 return True
         except:
             print("mixdrop.get() err : " + str(link))
@@ -90,14 +92,14 @@ def vudeo(link , id):
             if "has been deleted" in tmp.text:
                 print("vudeo is down")
                 # tmp.close()
-                save_dead_link(id ,link , "vudeo")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link , "vudeo")
+                db_writer(id,link)
                 return False
             else:
                 print("vudeo is up")
                 # tmp.close()
-                save_up_link(id ,link , "vudeo")
-                db_writer(id,link,1)
+                # save_up_link(id ,link , "vudeo")
+                # db_writer(id,link,1)
                 return True
         except:
             print("vudeo.get() err")
@@ -110,20 +112,20 @@ def ninjastream(link , id):
             if "jw-error-msg" in tmp.text:
                 print("ninjastream is down")
                 # tmp.close()
-                save_dead_link(id ,link, "ninja")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "ninja")
+                db_writer(id,link)
                 return False
             elif "File not found" in tmp.text:
                 print("ninjastream is down")
                 # tmp.close()
-                save_dead_link(id ,link, "ninja")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "ninja")
+                db_writer(id,link)
                 return False
             else:
                 print("ninjastream is up")
                 # tmp.close()
-                save_up_link(id,link, "ninja")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "ninja")
+                # db_writer(id,link,1)
                 return True
         except:
             print("ninjastream.get() err")
@@ -136,14 +138,14 @@ def vidoza(link , id):
             if "File was deleted" in tmp.text:
                 print("vidoza is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "vidoza")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "vidoza")
+                db_writer(id,link)
                 return False
             else:
                 print("vidoza is up ")
                 # tmp.close()
-                save_up_link(id,link, "vidoza")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "vidoza")
+                # db_writer(id,link,1)
                 return True
         except:
             print("vidoza.get() err")
@@ -156,14 +158,14 @@ def streamtape(link , id):
             if "Sorry, something went wrong!" in tmp.text:
                 print("streamtape is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "streamtape")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "streamtape")
+                db_writer(id,link)
                 return False
             else:
                 print("streamtape is up")
                 # tmp.close()
-                save_up_link(id,link, "streamtape")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "streamtape")
+                # db_writer(id,link,1)
                 return True
         except:
             print("streamtape.get() err")
@@ -176,31 +178,31 @@ def fembed_aka_dutrag(link , id):
             if  "video does not exis" in tmp.text:
                 print("fembed_aka_dutrag is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "fembed_aka_dutrag")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "fembed_aka_dutrag")
+                db_writer(id,link)
                 return False
             elif "Sorry this video is unavailable: DMCA Takedown" in tmp.text:
                 print("fembed_aka_dutrag is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "fembed_aka_dutrag")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "fembed_aka_dutrag")
+                db_writer(id,link)
                 return False
             elif "Sorry this video is unavailable: Conversion failed!" in tmp.text:
                 print("fembed_aka_dutrag is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "fembed_aka_dutrag")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "fembed_aka_dutrag")
+                db_writer(id,link)
                 return False
             else:
                 print("fembed_aka_dutrag is up")
                 # tmp.close()
-                save_up_link(id,link, "fembed_aka_dutrag")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "fembed_aka_dutrag")
+                # db_writer(id,link,1)
                 return True
         except:
             print("fembed_aka_dutrag is down ")
-            save_dead_link(id, link, "fembed_aka_dutrag")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "fembed_aka_dutrag")
+            db_writer(id,link)
             return False
 
 def upstream(link , id):
@@ -211,21 +213,21 @@ def upstream(link , id):
             if "Not Found" in tmp.text:
                 print("upstream is down 00")
                 # tmp.close()
-                save_dead_link(id ,link, "upstream")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "upstream")
+                db_writer(id,link)
                 return False
             elif "image-404.png" in tmp.text:
                 print("upstream is down 01")
                 # tmp.close()
-                save_dead_link(id ,link, "upstream")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "upstream")
+                db_writer(id,link)
                 return False
 
             else:
                 print("upstream is up")
                 # tmp.close()
-                save_up_link(id,link, "upstream")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "upstream")
+                # db_writer(id,link,1)
                 return True
         except:
             print("upstream.get() err")
@@ -238,19 +240,19 @@ def jetload(link , id):
             if "HLS.js error: networkError" in tmp.text:
                 print("jetload is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "jetload")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "jetload")
+                db_writer(id,link)
                 return False
             else:
                 print("jetload is up")
                 # tmp.close()
-                save_up_link(id,link, "jetload")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "jetload")
+                # db_writer(id,link,1)
                 return True
         except:
             print("jetload is down ")
-            save_dead_link(id, link, "jetload")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "jetload")
+            db_writer(id,link)
             return False
 
 def mystream(link , id):
@@ -259,13 +261,13 @@ def mystream(link , id):
         tmp = requests.get(link , 'html.parser' ,headers=headers,proxies=proxy_changer())
         print("mystream is probably up")
         # tmp.close()
-        save_up_link(id,link, "mystream")
-        db_writer(id,link,1)
+        # save_up_link(id,link, "mystream")
+        # db_writer(id,link,1)
         return True
     except:
-        print("mystream is down")
-        save_dead_link(id ,link, "mystream")
-        db_writer(id,link , 0)
+        print("mystream is dow")
+        # save_dead_link(id ,link, "mystream")
+        db_writer(id,link)
         return False
 
 def uptostream(link , id):
@@ -276,20 +278,20 @@ def uptostream(link , id):
             if "File not found" in tmp.text:
                 print("uptostream is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "uptostream")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "uptostream")
+                db_writer(id,link)
                 return False
             elif "The video player could not be loaded" in tmp.text:
                 print("uptostream is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "uptostream")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "uptostream")
+                db_writer(id,link)
                 return False
             else:
                 print("uptostream is up")
                 # tmp.close()
-                save_up_link(id,link, "uptostream")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "uptostream")
+                # db_writer(id,link,1)
                 return True
         except Exception as e:
             print(e)
@@ -303,25 +305,25 @@ def ok(link , id):
             if "The video has been blocked" in tmp.text:
                 print("ok is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "ok")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "ok")
+                db_writer(id,link)
                 return False
             elif "Видео заблокировано по требованию правообладателя" in tmp.text:
                 print("ok is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "ok")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "ok")
+                db_writer(id,link)
                 return False
             else:
                 print("ok is up")
                 # tmp.close()
-                save_up_link(id,link, "ok")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "ok")
+                # db_writer(id,link,1)
                 return True
         except:
             print("ok is up")
-            save_up_link(id, link, "ok")
-            db_writer(id,link,1)
+            # save_up_link(id, link, "ok")
+            # db_writer(id,link,1)
             return True
 
 def uqload(link , id):
@@ -332,14 +334,14 @@ def uqload(link , id):
             if "File was deleted" in tmp.text:
                 print("uqload is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "uqload")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "uqload")
+                db_writer(id,link)
                 return False
             else:
                 print("uqload is up")
                 # tmp.close()
-                save_up_link(id,link, "uqload")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "uqload")
+                # db_writer(id,link,1)
                 return True
         except:
             print("uqload.get() err")
@@ -352,14 +354,14 @@ def uploaded(link , id):
             if "Error: 404" in tmp.text:
                 print("uploaded is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "uploaded")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "uploaded")
+                db_writer(id,link)
                 return False
             else:
                 print("uploaded is up")
                 # tmp.close()
-                save_up_link(id,link, "uploaded")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "uploaded")
+                # db_writer(id,link,1)
                 return True
         except:
             print("uploaded.get() err")
@@ -372,14 +374,14 @@ def rapidgator(link , id):
             if "404 File not found" in tmp.text:
                 print("rapidgator is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "rapidgator")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "rapidgator")
+                db_writer(id,link)
                 return False
             else:
                 print("rapidgator is up")
                 # tmp.close()
-                save_up_link(id,link, "rapidgator")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "rapidgator")
+                # db_writer(id,link,1)
                 return True
         except:
             print("rapidgator.get() err")
@@ -390,13 +392,13 @@ def videomega(link , id):
         tmp = requests.get(link , 'html.parser' ,headers=headers,proxies=proxy_changer())
         print("videomega is probably up")
         # tmp.close()
-        save_up_link(id,link, "videomega")
-        db_writer(id,link,1)
+        # save_up_link(id,link, "videomega")
+        # db_writer(id,link,1)
         return True
     except:
-        print("videomega is down")
-        save_dead_link(id ,link, "videomega")
-        db_writer(id,link , 0)
+        print("videomega is dow")
+        # save_dead_link(id ,link, "videomega")
+        db_writer(id,link)
         return False
 
 def flashx(link , id):
@@ -407,20 +409,20 @@ def flashx(link , id):
             if "deleted!" in tmp.text:
                 print("flashx is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "flashx")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "flashx")
+                db_writer(id,link)
                 return False
             else:
                 print("flashx is up")
                 # tmp.close()
-                save_up_link(id,link, "flashx")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "flashx")
+                # db_writer(id,link,1)
                 return True
         except:
             print("flashx is down ")
             # tmp.close()
-            save_dead_link(id, link, "flashx")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "flashx")
+            db_writer(id,link)
             return False
 
 def gounlimited(link ,id):
@@ -428,14 +430,14 @@ def gounlimited(link ,id):
         try:
             print(link)
             print("gounlimited is down ")
-            save_dead_link(id ,link, "gounlimited")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "gounlimited")
+            db_writer(id,link)
             return False
         except:
             print(link)
             print("gounlimited is down ")
-            save_dead_link(id ,link, "gounlimited")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "gounlimited")
+            db_writer(id,link)
             return False
 
 def vidfast(link ,id):
@@ -443,8 +445,8 @@ def vidfast(link ,id):
         try:
             print(link)
             print("vidfast is down ")
-            save_dead_link(id ,link, "vidfast")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "vidfast")
+            db_writer(id,link)
             return False
         except:
             print("vidfast.get() err")
@@ -454,14 +456,14 @@ def vidlox(link ,id):
         try:
             print(link)
             print("vidlox is down ")
-            save_dead_link(id ,link, "vidlox")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "vidlox")
+            db_writer(id,link)
             return False
         except:
             print(link)
             print("vidlox is down ")
-            save_dead_link(id, link, "vidlox")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "vidlox")
+            db_writer(id,link)
             return False
 
 def ffsplayer(link ,id):
@@ -469,14 +471,14 @@ def ffsplayer(link ,id):
         try:
             print(link)
             print("ffsplayer is down ")
-            save_dead_link(id ,link, "ffsplayer")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "ffsplayer")
+            db_writer(id,link)
             return False
         except:
             print(link)
             print("ffsplayer is down ")
-            save_dead_link(id, link, "ffsplayer")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "ffsplayer")
+            db_writer(id,link)
             return False
 
 def cloudvid(link , id):
@@ -484,14 +486,14 @@ def cloudvid(link , id):
         try:
             print(link)
             print("cloudvid is down ")
-            save_dead_link(id ,link, "cloudvid")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "cloudvid")
+            db_writer(id,link)
             return False
         except:
             print(link)
             print("cloudvid is down ")
-            save_dead_link(id, link, "cloudvid")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "cloudvid")
+            db_writer(id,link)
             return False
 
 def vidtodoo(link , id):
@@ -499,14 +501,14 @@ def vidtodoo(link , id):
         try:
             print(link)
             print("vidtodoo is down ")
-            save_dead_link(id ,link, "vidtodoo")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "vidtodoo")
+            db_writer(id,link)
             return False
         except:
             print(link)
             print("vidtodoo is down ")
-            save_dead_link(id, link, "vidtodoo")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "vidtodoo")
+            db_writer(id,link)
             return False
 
 def papystreaming(link , id):
@@ -514,14 +516,14 @@ def papystreaming(link , id):
         try:
             print(link)
             print("papystreaming is down ")
-            save_dead_link(id ,link, "papystreaming")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "papystreaming")
+            db_writer(id,link)
             return False
         except:
             print(link)
             print("papystreaming is down ")
-            save_dead_link(id, link, "papystreaming")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "papystreaming")
+            db_writer(id,link)
             return False
 
 def clipwatching(link , id):
@@ -529,14 +531,14 @@ def clipwatching(link , id):
         try:
             print(link)
             print("clipwatching is down ")
-            save_dead_link(id ,link, "clipwatching")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "clipwatching")
+            db_writer(id,link)
             return False
         except:
             print(link)
             print("clipwatching is down ")
-            save_dead_link(id, link, "clipwatching")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "clipwatching")
+            db_writer(id,link)
             return False
 
 def vidhd(link , id):
@@ -544,14 +546,14 @@ def vidhd(link , id):
         try:
             print(link)
             print("vidhd is down ")
-            save_dead_link(id ,link, "vidhd")
-            db_writer(id,link , 0)
+            # save_dead_link(id ,link, "vidhd")
+            db_writer(id,link)
             return False
         except:
             print(link)
             print("vidhd is down ")
-            save_dead_link(id, link, "vidhd")
-            db_writer(id,link , 0)
+            # save_dead_link(id, link, "vidhd")
+            db_writer(id,link)
             return False
 
 
@@ -563,25 +565,25 @@ def x(link , id):
             if "404" or "deleted" or "unavaible" or "Error" in tmp.text:
                 print("x is down ")
                 # tmp.close()
-                save_dead_link(id ,link, "x")
-                db_writer(id,link , 0)
+                # save_dead_link(id ,link, "x")
+                db_writer(id,link)
                 return False
             else:
                 print("x is up")
                 # tmp.close()
-                save_up_link(id,link, "x")
-                db_writer(id,link,1)
+                # save_up_link(id,link, "x")
+                # db_writer(id,link,1)
                 return True
         except:
             print("x.get() err")
 #====================================================================
-def save_dead_link(id , link , player):
-    with open( "./" + str(player) + "/down/down.txt", 'a') as f:
-        f.write(str(id) +"  " + link + "\n")
-
-def save_up_link(id ,link , player):
-    with open( "./" + str(player) + "/up/up.txt", 'a') as f:
-        f.write(str(id) + "  " + link + "\n")
+# def save_dead_link(id , link , player):
+#     with open( "./" + str(player) + "/down/down.txt", 'a') as f:
+#         f.write(str(id) +"  " + link + "\n")
+#
+# def save_up_link(id ,link , player):
+#     with open( "./" + str(player) + "/up/up.txt", 'a') as f:
+#         f.write(str(id) + "  " + link + "\n")
 
 
 def check_upvid(l):
@@ -877,17 +879,17 @@ def init():
 
 ###$######Fin file.py
 
-def db_writer(movie_id , player_url , status):
+def db_writer(movie_id , player_url):
     mycursor = mydb.cursor(buffered=True)
-    sql = "INSERT INTO players (movie_id, player_url,status) VALUES (%s, %s , %s)"
-    val = (movie_id , player_url , status)
+    sql = "INSERT INTO players (movie_id, player_url) VALUES (%s, %s )"
+    val = (movie_id , player_url)
     mycursor.execute(sql, val)
     mydb.commit()
 
 if __name__ == "__main__":
     start_time = time.time()
     init()
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies'
+    json_url = 'https://panelv2.dustreaming.com/api/v2/movies'
     # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=2'
     # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=3'
     # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=4'
@@ -904,7 +906,7 @@ if __name__ == "__main__":
     # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=15'
     # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=16'
     # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=17'
-    json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=18'
+    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=18'
     req = requests.get(json_url, 'html.parser' , headers=headers,proxies=proxy_changer())
 
     my_json = json.loads(req.text)
