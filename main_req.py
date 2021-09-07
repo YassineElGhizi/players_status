@@ -15,6 +15,9 @@ mydb = mysql.connector.connect(
     database="player_status"
 )
 mycursor = mydb.cursor(buffered=True)
+
+adel_json_api_page = 1
+
 #
 # sql = "INSERT INTO player (id, player,status) VALUES (%s, %s , %s)"
 # val = (1235, "https://www.w3schools.com/python/python_mysql_insert.asp" , 0)
@@ -58,7 +61,7 @@ def upvid(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("upvid is up ")
+            # print("upvid is up ")
             # save_up_link(id, link, "upvid")
             # db_writer(id,link,1)
             return True
@@ -82,7 +85,9 @@ def mixdrop(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("mixdrop.get() err : " + str(link))
+            # print("mixdrop.get() err : " + str(link))
+            # db_writer(id, link)
+            return True
 
 def vudeo(link , id):
     while True:
@@ -102,7 +107,8 @@ def vudeo(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("vudeo.get() err")
+#             # print("vudeo.get() err"  + str(link))
+            return True
 
 def ninjastream(link , id):
     while True:
@@ -128,7 +134,8 @@ def ninjastream(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("ninjastream.get() err")
+#             # print("ninjastream.get() err"  + str(link))
+            return True
 
 def vidoza(link , id):
     while True:
@@ -148,7 +155,8 @@ def vidoza(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("vidoza.get() err")
+            # print("vidoza.get() err"  + str(link))
+            return True
 
 def streamtape(link , id):
     while True:
@@ -168,7 +176,8 @@ def streamtape(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("streamtape.get() err")
+            # print("streamtape.get() err"  + str(link))
+            return  True
 
 def fembed_aka_dutrag(link , id):
     while True:
@@ -230,7 +239,8 @@ def upstream(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("upstream.get() err")
+#             # print("upstream.get() err" + str(link))
+            return True
 
 def jetload(link , id):
     while True:
@@ -294,8 +304,9 @@ def uptostream(link , id):
                 # db_writer(id,link,1)
                 return True
         except Exception as e:
-            print(e)
-            print("uptostream.get() err")
+            # print(e)
+#             # print("uptostream.get() err" + str(link))
+            return True
 
 def ok(link , id):
     while True:
@@ -344,7 +355,8 @@ def uqload(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("uqload.get() err")
+#             # print("uqload.get() err" + str(link))
+            return True
 
 def uploaded(link , id):
     while True:
@@ -364,7 +376,8 @@ def uploaded(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("uploaded.get() err")
+            # print("uploaded.get() err" + str(link))
+            return  True
 
 def rapidgator(link , id):
     while True:
@@ -384,7 +397,8 @@ def rapidgator(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("rapidgator.get() err")
+            return True
+            # print("rapidgator.get() err" + str(link))
 
 def videomega(link , id):
     try:
@@ -396,7 +410,7 @@ def videomega(link , id):
         # db_writer(id,link,1)
         return True
     except:
-        print("videomega is dow")
+        print("videomega is down")
         # save_dead_link(id ,link, "videomega")
         db_writer(id,link)
         return False
@@ -449,7 +463,8 @@ def vidfast(link ,id):
             db_writer(id,link)
             return False
         except:
-            print("vidfast.get() err")
+            return True
+            # print("vidfast.get() err" + str(link))
 
 def vidlox(link ,id):
     while True:
@@ -575,7 +590,8 @@ def x(link , id):
                 # db_writer(id,link,1)
                 return True
         except:
-            print("x.get() err")
+            # print("x.get() err" + str(link))
+            return True
 #====================================================================
 # def save_dead_link(id , link , player):
 #     with open( "./" + str(player) + "/down/down.txt", 'a') as f:
@@ -766,147 +782,136 @@ def check_x(l):
     print("----------->x  finished <------------------")
 
 
-def init():
-    if not os.path.isdir("./clipwatching"):
-        os.mkdir("./clipwatching")
-        os.mkdir("./clipwatching/down")
-        os.mkdir("./clipwatching/up")
-    if not os.path.isdir("./cloudvid"):
-        os.mkdir("./cloudvid")
-        os.mkdir("./cloudvid/down")
-        os.mkdir("./cloudvid/up")
-    if not os.path.isdir("./fembed_aka_dutrag"):
-        os.mkdir("./fembed_aka_dutrag")
-        os.mkdir("./fembed_aka_dutrag/down")
-        os.mkdir("./fembed_aka_dutrag/up")
-    if not os.path.isdir("./ffsplayer"):
-        os.mkdir("./ffsplayer")
-        os.mkdir("./ffsplayer/down")
-        os.mkdir("./ffsplayer/up")
-    if not os.path.isdir("./flashx"):
-        os.mkdir("./flashx")
-        os.mkdir("./flashx/down")
-        os.mkdir("./flashx/up")
-    if not os.path.isdir("./gounlimited"):
-        os.mkdir("./gounlimited")
-        os.mkdir("./gounlimited/down")
-        os.mkdir("./gounlimited/up")
-    if not os.path.isdir("./jetload"):
-        os.mkdir("./jetload")
-        os.mkdir("./jetload/down")
-        os.mkdir("./jetload/up")
-    if not os.path.isdir("./mix"):
-        os.mkdir("./mix")
-        os.mkdir("./mix/down")
-        os.mkdir("./mix/up")
-    if not os.path.isdir("./mystream"):
-        os.mkdir("./mystream")
-        os.mkdir("./mystream/down")
-        os.mkdir("./mystream/up")
-    if not os.path.isdir("./ninja"):
-        os.mkdir("./ninja")
-        os.mkdir("./ninja/down")
-        os.mkdir("./ninja/up")
-    if not os.path.isdir("./ok"):
-        os.mkdir("./ok")
-        os.mkdir("./ok/down")
-        os.mkdir("./ok/up")
-    if not os.path.isdir("./papystreaming"):
-        os.mkdir("./papystreaming")
-        os.mkdir("./papystreaming/down")
-        os.mkdir("./papystreaming/up")
-    if not os.path.isdir("./rapidgator"):
-        os.mkdir("./rapidgator")
-        os.mkdir("./rapidgator/down")
-        os.mkdir("./rapidgator/up")
-    if not os.path.isdir("./streamtape"):
-        os.mkdir("./streamtape")
-        os.mkdir("./streamtape/down")
-        os.mkdir("./streamtape/up")
-    if not os.path.isdir("./uploaded"):
-        os.mkdir("./uploaded")
-        os.mkdir("./uploaded/down")
-        os.mkdir("./uploaded/up")
-    if not os.path.isdir("./upstream"):
-        os.mkdir("./upstream")
-        os.mkdir("./upstream/down")
-        os.mkdir("./upstream/up")
-    if not os.path.isdir("./uptostream"):
-        os.mkdir("./uptostream")
-        os.mkdir("./uptostream/down")
-        os.mkdir("./uptostream/up")
-    if not os.path.isdir("./upvid"):
-        os.mkdir("./upvid")
-        os.mkdir("./upvid/down")
-        os.mkdir("./upvid/up")
-    if not os.path.isdir("./uqload"):
-        os.mkdir("./uqload")
-        os.mkdir("./uqload/down")
-        os.mkdir("./uqload/up")
-    if not os.path.isdir("./videomega"):
-        os.mkdir("./videomega")
-        os.mkdir("./videomega/down")
-        os.mkdir("./videomega/up")
-    if not os.path.isdir("./vidhd"):
-        os.mkdir("./vidhd")
-        os.mkdir("./vidhd/down")
-        os.mkdir("./vidhd/up")
-    if not os.path.isdir("./vidfast"):
-        os.mkdir("./vidfast")
-        os.mkdir("./vidfast/down")
-        os.mkdir("./vidfast/up")
-    if not os.path.isdir("./vidlox"):
-        os.mkdir("./vidlox")
-        os.mkdir("./vidlox/down")
-        os.mkdir("./vidlox/up")
-    if not os.path.isdir("./vidoza"):
-        os.mkdir("./vidoza")
-        os.mkdir("./vidoza/down")
-        os.mkdir("./vidoza/up")
-    if not os.path.isdir("./vidtodoo"):
-        os.mkdir("./vidtodoo")
-        os.mkdir("./vidtodoo/down")
-        os.mkdir("./vidtodoo/up")
-    if not os.path.isdir("./vudeo"):
-        os.mkdir("./vudeo")
-        os.mkdir("./vudeo/down")
-        os.mkdir("./vudeo/up")
-    if not os.path.isdir("./x"):
-        os.mkdir("./x")
-        os.mkdir("./x/down")
-        os.mkdir("./x/up")
+# def init():
+#     if not os.path.isdir("./clipwatching"):
+#         os.mkdir("./clipwatching")
+#         os.mkdir("./clipwatching/down")
+#         os.mkdir("./clipwatching/up")
+#     if not os.path.isdir("./cloudvid"):
+#         os.mkdir("./cloudvid")
+#         os.mkdir("./cloudvid/down")
+#         os.mkdir("./cloudvid/up")
+#     if not os.path.isdir("./fembed_aka_dutrag"):
+#         os.mkdir("./fembed_aka_dutrag")
+#         os.mkdir("./fembed_aka_dutrag/down")
+#         os.mkdir("./fembed_aka_dutrag/up")
+#     if not os.path.isdir("./ffsplayer"):
+#         os.mkdir("./ffsplayer")
+#         os.mkdir("./ffsplayer/down")
+#         os.mkdir("./ffsplayer/up")
+#     if not os.path.isdir("./flashx"):
+#         os.mkdir("./flashx")
+#         os.mkdir("./flashx/down")
+#         os.mkdir("./flashx/up")
+#     if not os.path.isdir("./gounlimited"):
+#         os.mkdir("./gounlimited")
+#         os.mkdir("./gounlimited/down")
+#         os.mkdir("./gounlimited/up")
+#     if not os.path.isdir("./jetload"):
+#         os.mkdir("./jetload")
+#         os.mkdir("./jetload/down")
+#         os.mkdir("./jetload/up")
+#     if not os.path.isdir("./mix"):
+#         os.mkdir("./mix")
+#         os.mkdir("./mix/down")
+#         os.mkdir("./mix/up")
+#     if not os.path.isdir("./mystream"):
+#         os.mkdir("./mystream")
+#         os.mkdir("./mystream/down")
+#         os.mkdir("./mystream/up")
+#     if not os.path.isdir("./ninja"):
+#         os.mkdir("./ninja")
+#         os.mkdir("./ninja/down")
+#         os.mkdir("./ninja/up")
+#     if not os.path.isdir("./ok"):
+#         os.mkdir("./ok")
+#         os.mkdir("./ok/down")
+#         os.mkdir("./ok/up")
+#     if not os.path.isdir("./papystreaming"):
+#         os.mkdir("./papystreaming")
+#         os.mkdir("./papystreaming/down")
+#         os.mkdir("./papystreaming/up")
+#     if not os.path.isdir("./rapidgator"):
+#         os.mkdir("./rapidgator")
+#         os.mkdir("./rapidgator/down")
+#         os.mkdir("./rapidgator/up")
+#     if not os.path.isdir("./streamtape"):
+#         os.mkdir("./streamtape")
+#         os.mkdir("./streamtape/down")
+#         os.mkdir("./streamtape/up")
+#     if not os.path.isdir("./uploaded"):
+#         os.mkdir("./uploaded")
+#         os.mkdir("./uploaded/down")
+#         os.mkdir("./uploaded/up")
+#     if not os.path.isdir("./upstream"):
+#         os.mkdir("./upstream")
+#         os.mkdir("./upstream/down")
+#         os.mkdir("./upstream/up")
+#     if not os.path.isdir("./uptostream"):
+#         os.mkdir("./uptostream")
+#         os.mkdir("./uptostream/down")
+#         os.mkdir("./uptostream/up")
+#     if not os.path.isdir("./upvid"):
+#         os.mkdir("./upvid")
+#         os.mkdir("./upvid/down")
+#         os.mkdir("./upvid/up")
+#     if not os.path.isdir("./uqload"):
+#         os.mkdir("./uqload")
+#         os.mkdir("./uqload/down")
+#         os.mkdir("./uqload/up")
+#     if not os.path.isdir("./videomega"):
+#         os.mkdir("./videomega")
+#         os.mkdir("./videomega/down")
+#         os.mkdir("./videomega/up")
+#     if not os.path.isdir("./vidhd"):
+#         os.mkdir("./vidhd")
+#         os.mkdir("./vidhd/down")
+#         os.mkdir("./vidhd/up")
+#     if not os.path.isdir("./vidfast"):
+#         os.mkdir("./vidfast")
+#         os.mkdir("./vidfast/down")
+#         os.mkdir("./vidfast/up")
+#     if not os.path.isdir("./vidlox"):
+#         os.mkdir("./vidlox")
+#         os.mkdir("./vidlox/down")
+#         os.mkdir("./vidlox/up")
+#     if not os.path.isdir("./vidoza"):
+#         os.mkdir("./vidoza")
+#         os.mkdir("./vidoza/down")
+#         os.mkdir("./vidoza/up")
+#     if not os.path.isdir("./vidtodoo"):
+#         os.mkdir("./vidtodoo")
+#         os.mkdir("./vidtodoo/down")
+#         os.mkdir("./vidtodoo/up")
+#     if not os.path.isdir("./vudeo"):
+#         os.mkdir("./vudeo")
+#         os.mkdir("./vudeo/down")
+#         os.mkdir("./vudeo/up")
+#     if not os.path.isdir("./x"):
+#         os.mkdir("./x")
+#         os.mkdir("./x/down")
+#         os.mkdir("./x/up")
 
 
 ###$######Fin file.py
 
 def db_writer(movie_id , player_url):
+    global adel_json_api_page
     mycursor = mydb.cursor(buffered=True)
-    sql = "INSERT INTO players (movie_id, player_url) VALUES (%s, %s )"
-    val = (movie_id , player_url)
+    sql = "INSERT INTO players (movie_id, player_url ,adel_json_api_page) VALUES (%s, %s ,%s)"
+    val = (movie_id , player_url , adel_json_api_page)
     mycursor.execute(sql, val)
     mydb.commit()
 
 if __name__ == "__main__":
+
     start_time = time.time()
-    init()
-    json_url = 'https://panelv2.dustreaming.com/api/v2/movies'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=2'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=3'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=4'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=5'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=6'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=7'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=8'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=9'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=10'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=11'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=12'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=13'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=14'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=15'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=16'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=17'
-    # json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=18'
+    # init()
+    if adel_json_api_page == 1:
+        json_url = 'https://panelv2.dustreaming.com/api/v2/movies'
+    else:
+        json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=' + str(adel_json_api_page)
+
     req = requests.get(json_url, 'html.parser' , headers=headers,proxies=proxy_changer())
 
     my_json = json.loads(req.text)
