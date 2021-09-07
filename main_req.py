@@ -55,13 +55,13 @@ def upvid(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("upvid is up ")
+                # print("upvid is up ")
                 # tmp.close()
                 # save_up_link(id,link, "upvid")
                 # db_writer(id,link,1)
                 return True
         except:
-            # print("upvid is up ")
+#             # print("upvid is up ")
             # save_up_link(id, link, "upvid")
             # db_writer(id,link,1)
             return True
@@ -79,7 +79,7 @@ def mixdrop(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("mixdrop is up")
+                # print("mixdrop is up")
                 # tmp.close()
                 # save_up_link(id,link, "mix")
                 # db_writer(id,link,1)
@@ -101,7 +101,7 @@ def vudeo(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("vudeo is up")
+                # print("vudeo is up")
                 # tmp.close()
                 # save_up_link(id ,link , "vudeo")
                 # db_writer(id,link,1)
@@ -128,7 +128,7 @@ def ninjastream(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("ninjastream is up")
+                # print("ninjastream is up")
                 # tmp.close()
                 # save_up_link(id,link, "ninja")
                 # db_writer(id,link,1)
@@ -149,7 +149,7 @@ def vidoza(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("vidoza is up ")
+                # print("vidoza is up ")
                 # tmp.close()
                 # save_up_link(id,link, "vidoza")
                 # db_writer(id,link,1)
@@ -170,7 +170,7 @@ def streamtape(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("streamtape is up")
+                # print("streamtape is up")
                 # tmp.close()
                 # save_up_link(id,link, "streamtape")
                 # db_writer(id,link,1)
@@ -203,7 +203,7 @@ def fembed_aka_dutrag(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("fembed_aka_dutrag is up")
+                # print("fembed_aka_dutrag is up")
                 # tmp.close()
                 # save_up_link(id,link, "fembed_aka_dutrag")
                 # db_writer(id,link,1)
@@ -233,7 +233,7 @@ def upstream(link , id):
                 return False
 
             else:
-                print("upstream is up")
+                # print("upstream is up")
                 # tmp.close()
                 # save_up_link(id,link, "upstream")
                 # db_writer(id,link,1)
@@ -254,7 +254,7 @@ def jetload(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("jetload is up")
+                # print("jetload is up")
                 # tmp.close()
                 # save_up_link(id,link, "jetload")
                 # db_writer(id,link,1)
@@ -269,7 +269,7 @@ def mystream(link , id):
     try:
         print(link)
         tmp = requests.get(link , 'html.parser' ,headers=headers,proxies=proxy_changer())
-        print("mystream is probably up")
+        # print("mystream is probably up")
         # tmp.close()
         # save_up_link(id,link, "mystream")
         # db_writer(id,link,1)
@@ -298,7 +298,7 @@ def uptostream(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("uptostream is up")
+                # print("uptostream is up")
                 # tmp.close()
                 # save_up_link(id,link, "uptostream")
                 # db_writer(id,link,1)
@@ -326,13 +326,13 @@ def ok(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("ok is up")
+                # print("ok is up")
                 # tmp.close()
                 # save_up_link(id,link, "ok")
                 # db_writer(id,link,1)
                 return True
         except:
-            print("ok is up")
+            # print("ok is up")
             # save_up_link(id, link, "ok")
             # db_writer(id,link,1)
             return True
@@ -349,7 +349,7 @@ def uqload(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("uqload is up")
+                # print("uqload is up")
                 # tmp.close()
                 # save_up_link(id,link, "uqload")
                 # db_writer(id,link,1)
@@ -370,7 +370,7 @@ def uploaded(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("uploaded is up")
+                # print("uploaded is up")
                 # tmp.close()
                 # save_up_link(id,link, "uploaded")
                 # db_writer(id,link,1)
@@ -391,7 +391,7 @@ def rapidgator(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("rapidgator is up")
+                # print("rapidgator is up")
                 # tmp.close()
                 # save_up_link(id,link, "rapidgator")
                 # db_writer(id,link,1)
@@ -404,7 +404,7 @@ def videomega(link , id):
     try:
         print(link)
         tmp = requests.get(link , 'html.parser' ,headers=headers,proxies=proxy_changer())
-        print("videomega is probably up")
+        # print("videomega is probably up")
         # tmp.close()
         # save_up_link(id,link, "videomega")
         # db_writer(id,link,1)
@@ -427,7 +427,7 @@ def flashx(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("flashx is up")
+                # print("flashx is up")
                 # tmp.close()
                 # save_up_link(id,link, "flashx")
                 # db_writer(id,link,1)
@@ -584,7 +584,7 @@ def x(link , id):
                 db_writer(id,link)
                 return False
             else:
-                print("x is up")
+                # print("x is up")
                 # tmp.close()
                 # save_up_link(id,link, "x")
                 # db_writer(id,link,1)
@@ -908,9 +908,9 @@ if __name__ == "__main__":
     start_time = time.time()
     # init()
     if adel_json_api_page == 1:
-        json_url = 'https://panelv2.dustreaming.com/api/v2/movies'
+        json_url = 'https://panelv3.dustreaming.com/api/v2/movies'
     else:
-        json_url = 'https://panelv2.dustreaming.com/api/v2/movies?page=' + str(adel_json_api_page)
+        json_url = 'https://panelv3.dustreaming.com/api/v2/movies?page=' + str(adel_json_api_page)
 
     req = requests.get(json_url, 'html.parser' , headers=headers,proxies=proxy_changer())
 
